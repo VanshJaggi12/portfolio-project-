@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vansh Jaggi | Full Stack Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <button class="settings-btn" onclick="document.getElementById('colorPanel').classList.toggle('active')">
+        <i data-lucide="palette"></i>
+    </button>
+    <div class="color-panel" id="colorPanel">
+        <div class="color-opt" style="background: #007bff;" onclick="setTheme(212)"></div> 
+        <div class="color-opt" style="background: #10b981;" onclick="setTheme(150)"></div> 
+        <div class="color-opt" style="background: #f59e0b;" onclick="setTheme(35)"></div>  
+        <div class="color-opt" style="background: #ef4444;" onclick="setTheme(0)"></div>   
+        <div class="color-opt" style="background: #8b5cf6;" onclick="setTheme(270)"></div> 
+    </div>
+
+    <button class="settings-btn theme-pos" onclick="toggleTheme()">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <div class="cmd-overlay" id="cmdOverlay">
+        <div class="cmd-box">
+            <input type="text" class="cmd-input" id="cmdInput" placeholder="Type a command...">
+            <div class="cmd-results">
+                <div class="cmd-item" onclick="navTo('about')"><span>Go to Home</span> <span class="kbd">↵</span></div>
+                <div class="cmd-item" onclick="navTo('projects')"><span>Go to Projects</span> <span class="kbd">P</span></div>
+                <div class="cmd-item" onclick="navTo('resume')"><span>Go to Resume</span> <span class="kbd">R</span></div>
+                <div class="cmd-item" onclick="toggleTheme()"><span>Toggle Theme</span> <span class="kbd">T</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-wrapper">
+        
+        <aside class="sidebar">
+            <div class="avatar-box">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&top=shortHair&facialHair=beardLight" alt="Vansh Jaggi">
+                <div class="status-badge">
+                    <div class="status-dot"></div>
+                    <div class="status-text">
+                        <span>Open to</span>
+                        <span>Work</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="name">Vansh Jaggi</h1>
+            <p class="role">Full Stack Developer | BCA '26</p>
+            <div class="separator"></div>
+            
+            <div class="contact-list">
+                <div class="contact-item">
+                    <div class="icon-box"><i data-lucide="mail"></i></div>
+                    <div class="contact-info"><h6>Email</h6><span>vanshjaggi786@gmail.com</span></div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i data-lucide="smartphone"></i></div>
+                    <div class="contact-info"><h6>Phone</h6><span>+91 98765 43210</span></div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i data-lucide="map-pin"></i></div>
+                    <div class="contact-info"><h6>Location</h6><span>Delhi, India</span></div>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="https://github.com" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <div class="nav-backdrop" id="navBackdrop"></div>
+                    <li><button class="nav-link active" onclick="switchTab('about', this)">About</button></li>
+                    <li><button class="nav-link" onclick="switchTab('projects', this)">Projects</button></li>
+                    <li><button class="nav-link" onclick="switchTab('resume', this)">Resume</button></li>
+                    <li><button class="nav-link" onclick="switchTab('contact', this)">Contact</button></li>
+                </ul>
+            </nav>
+
+            <article id="about" class="active">
+                <h2 class="page-title">About Me</h2>
+                <div class="typing-header">
+                    <span>I am a </span>
+                    <span id="typing-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+
+                <div class="hero-text">
+                    <p>I'm a final-year BCA student (Batch of 2026) and a passionate Software Developer based in Delhi, India. I specialize in building robust applications, game development, and intelligent backend systems. I am actively looking for off-campus opportunities and internships in the IT sector.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card reveal">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card reveal">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Years Coding</span>
+                    </div>
+                    <div class="stat-card reveal">
+                        <span class="stat-number" data-count="10">0</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+
+                <h3 class="page-title" style="font-size: 1.5rem; margin-top: 20px;">Tech Stack</h3>
+                <div class="tech-stack reveal">
+                    <div class="tech-item"><i class="fab fa-react" style="color: #61DAFB;"></i> React.js</div>
+                    <div class="tech-item"><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</div>
+                    <div class="tech-item"><i class="fab fa-python" style="color: #3776AB;"></i> Python</div>
+                    <div class="tech-item"><i class="fab fa-unity" style="color: #ffffff;"></i> Unity</div>
+                    <div class="tech-item"><i class="fab fa-js" style="color: #F7DF1E;"></i> JavaScript</div>
+                    <div class="tech-item"><i class="fas fa-database" style="color: #47A248;"></i> MongoDB</div>
+                    <div class="tech-item"><i class="fab fa-git-alt" style="color: #F05032;"></i> Git</div>
+                    <div class="tech-item"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML/CSS</div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-primary magnetic-btn" onclick="navTo('projects')">Check my work</button>
+                    <button class="btn-secondary magnetic-btn" onclick="navTo('contact')">Get in touch</button>
+                </div>
+
+                <div class="terminal-box">
+                    <div class="terminal-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-content" id="terminalOutput"></div>
+                </div>
+            </article>
+
+            <article id="projects">
+                <h2 class="page-title">Portfolio</h2>
+                
+                <div class="filter-list">
+                    <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+                    <button class="filter-btn" onclick="filterProjects('web', this)">Web Apps</button>
+                    <button class="filter-btn" onclick="filterProjects('game', this)">Games</button>
+                    <button class="filter-btn" onclick="filterProjects('ai', this)">AI/Python</button>
+                </div>
+                
+                <div class="project-grid">
+                    <div class="project-card reveal" data-category="ai">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Smart Task Manager">
+                        <div class="project-overlay">
+                            <h4>Smart Task Manager</h4>
+                            <span>Python • AI Priority Assistant</span>
+                            <div class="project-links">
+                                <a href="#" class="p-link"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="p-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal" data-category="game">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="2D Platformer">
+                        <div class="project-overlay">
+                            <h4>2D Platformer (Mario-style)</h4>
+                            <span>Unity • C# • 2D Physics</span>
+                            <div class="project-links">
+                                <a href="#" class="p-link"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="p-link"><i class="fas fa-gamepad"></i> Play</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80" alt="E-Commerce">
+                        <div class="project-overlay">
+                            <h4>B2B E-Commerce Platform</h4>
+                            <span>React • Node.js • MongoDB</span>
+                            <div class="project-links">
+                                <a href="#" class="p-link"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="p-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="resume">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <h2 class="page-title" style="margin-bottom: 0;">Resume</h2>
+                    <button class="btn-secondary" style="padding: 8px 20px; font-size: 0.9rem;" onclick="alert('Downloading CV...')">
+                        <i class="fas fa-download" style="margin-right: 8px;"></i> Download CV
+                    </button>
+                </div>
+
+                <h3 class="page-title" style="font-size: 1.5rem; margin-top: 20px;">Education</h3>
+                <div class="timeline-box">
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <span class="t-year">2023 — 2026</span>
+                        <h4 class="t-title">Bachelor of Computer Applications (BCA)</h4>
+                        <span class="t-sub">Delhi University</span>
+                        <p class="t-desc" style="font-size: 0.9rem; color: var(--text-main);">Final year student. Focusing on Data Structures, Python, Web Technologies, and Software Engineering.</p>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <span class="t-year">2022 — 2023</span>
+                        <h4 class="t-title">Senior Secondary (12th)</h4>
+                        <span class="t-sub">CBSE Board</span>
+                        <p class="t-desc" style="font-size: 0.9rem; color: var(--text-main);">Completed with focus on Computer Science and Mathematics.</p>
+                    </div>
+                </div>
+
+                <h3 class="page-title" style="font-size: 1.5rem; margin-top: 20px;">Proficiency</h3>
+                <div style="margin-top: 20px;">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Frontend (React, HTML/CSS)</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Backend (Python, Node.js)</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Game Dev (Unity, C#)</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="contact">
+                <h2 class="page-title">Contact</h2>
+                
+                <div style="height: 300px; border-radius: 16px; overflow: hidden; margin-bottom: 40px; border: 1px solid var(--border);">
+                    <iframe src="https://maps.google.com/maps?q=Delhi,%20India&t=&z=11&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(0.8);" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                
+                <h3 class="page-title" style="font-size: 1.5rem;">Send Message</h3>
+                
+                <form id="contactForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <input type="text" placeholder="Full Name" required class="form-input" style="width:100%; padding:15px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; color:var(--text-heading); outline:none;">
+                        <input type="email" placeholder="Email Address" required class="form-input" style="width:100%; padding:15px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; color:var(--text-heading); outline:none;">
+                    </div>
+                    <textarea placeholder="Your Message" required style="width:100%; height:150px; padding:15px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; color:var(--text-heading); outline:none; margin-bottom: 20px; resize:none;"></textarea>
+                    
+                    <button type="submit" class="btn-primary magnetic-btn" style="border:none;">
+                        <i data-lucide="send" style="width:16px; margin-right:5px; vertical-align:middle;"></i> Send Message
+                    </button>
+                </form>
+            </article>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
